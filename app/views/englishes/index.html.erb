@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>English Words</h1>
+<%= link_to 'New Word', new_english_path %>
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>Word</th>
+      <th>Meaning</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @englishes.each do |english| %>
+      <tr>
+        <td><%= link_to english.word, english %></td>
+        <td><%= english.meaning %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+

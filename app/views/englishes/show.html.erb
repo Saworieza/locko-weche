@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Word:</strong>
+  <%= @english.word %>
+</p>
+
+<p>
+  <strong>Meaning:</strong>
+  <%= @english.meaning %>
+</p>
+
+<%= link_to 'Edit', edit_english_path(@english) %> |
+<%= link_to 'Delete', @english, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Back', englishes_path %>

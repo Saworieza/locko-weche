@@ -1,0 +1,68 @@
+<%= form_for(@translation) do |f| %>
+  <% if @translation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@translation.errors.count, "error") %> prohibited this translation from being saved:</h2>
+
+      <ul>
+      <% @translation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <table>
+  <thead>
+    <tr>
+      <th>
+        <%= f.fields_for :englishes do |english| %>
+             <div class="field">
+               <%= english.label :word %><br>
+             </div>
+          <% end %>
+      </th><!-- english comes here -->
+      
+        <%# @languages.each do |language| %>  
+          <th>
+            <%= f.fields_for :languages do |language| %>
+               <div class="field">
+                 <%= language.label :name %><br>
+               </div>
+            <% end %>
+          </th><!-- loop that brings all the new languages here -->
+        <%# end %>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td>
+          <%= f.fields_for :englishes do |english| %>
+             <div class="field">
+               <%= english.text_field :word %>
+               <%#= f.select :english_id, English.all.map {|e| [e.word, e.id]} %>
+             </div>
+          <% end %>
+        </td><!-- english comes here -->
+        
+        <%# @languages.each do |language| %>  
+          <td>
+            <%= f.fields_for :languages do |language| %>
+               <div class="field">
+                <%= language.text_field :name %>
+               </div>
+            <% end %>
+          </td><!-- other languages.word.word come here -->
+        <%# end %>
+        
+      </tr>
+  </tbody>
+</table>
+
+  <div class="actions">
+    <%= f.submit 'Submit Translation' %>
+  </div>
+<% end %>
+
+

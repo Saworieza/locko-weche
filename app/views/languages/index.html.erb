@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Languages</h1>
+<%= link_to 'New Language', new_language_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Language Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @languages.each do |language| %>
+      <tr>
+        <td><%= link_to language.name, edit_language_path(language) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
